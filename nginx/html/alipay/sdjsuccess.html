@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/mui/3.7.1/css/mui.min.css"/>
+    <link rel="stylesheet" href="http://1.xinli2017.applinzi.com/login/iconfont/iconfont.css">
+    <script src="https://cdn.bootcss.com/mui/3.7.1/js/mui.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('plusready', function () {
+            //console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+        });
+    </script>
+    <style>
+    .mui-content{
+    	background: #23a4ed;
+    }
+    .error{
+    	width:200px;
+    	height: 200px;
+    	text-align: center;
+    	margin: 0 auto;
+    	margin-top: 180px;
+     	}
+	.error_x{
+		height: 100px;
+		width: 100px;
+		border-radius: 50%;
+		background: #fff;
+		text-align: center;
+		line-height: 100px;
+		margin: 0 auto;
+		}
+		.title{
+			color: #fff;
+			font-size: 20px;
+			padding-top: 20px;
+		}
+
+
+    @font-face {font-family: "iconfont";
+        src: url('iconfont.eot?t=1506426719124'); /* IE9*/
+        src: url('iconfont.eot?t=1506426719124#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+        url('iconfont.ttf?t=1506426719124') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+        url('iconfont.svg?t=1506426719124#iconfont') format('svg'); /* iOS 4.1- */
+    }
+
+    .iconfont {
+        font-family:"iconfont" !important;
+        font-size:16px;
+        font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .icon-yonghu:before { content: "\e610"; }
+
+    .icon-xiaoxi:before { content: "\e628"; }
+
+    .icon-shezhi:before { content: "\e609"; }
+
+    .icon-fanhui:before { content: "\e60c"; }
+
+    .icon-zhangdan:before { content: "\e607"; }
+
+    .icon-qianbao:before { content: "\e61e"; }
+
+    .icon-wenhao5:before { content: "\e63a"; }
+
+    .icon-dui:before { content: "\e682"; }
+
+    .icon-shoukuan:before { content: "\e611"; }
+
+    .icon-cuo:before { content: "\e67f"; }
+
+    .icon-icon_shengji:before { content: "\e60b"; }
+
+    .icon-xia:before { content: "\e614"; }
+
+    .icon-shaixuan2:before { content: "\e600"; }
+    
+    .apply {
+         height: 100%;
+         width: 100%;
+         position: absolute;
+         top: 0;
+         left: 0;
+         background: rgba(0, 0, 0, 0.5);
+         display: none;
+    }
+    .img-content {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        height: 300px;
+        width: 300px;
+    }
+    .img-apply {
+       height: 70px;
+       width: 70%;
+       position: absolute;
+       top: 62%;
+       left: 50%;
+       transform: translate(-50%,-50%);
+    }
+    .close {
+       height: 50px;
+       width: 50px;
+       position: absolute;
+       top: 75%;
+       left: 50%;
+       transform: translate(-50%,-50%);
+    }
+
+    </style>
+    
+</head>
+<body style="background: #23a4ed;">
+<!--<header class="mui-bar mui-bar-nav" style="background:#37c3e7">
+	<button id="btn" style="position:absolute;left:0;top:0;height:44px;background:#000;z-index:1000;opacity:0">返回</button>
+	<a class="mui-action-back iconfont icon-fanhui mui-pull-left" style="color: #fff;font-size: 18px; line-height:44px;"></a>
+    <h1 class="mui-title" style="color:#fff;">支付信息</h1>
+</header>-->
+<div class="mui-content">
+    <div class="error">
+		<div class="error_x">
+			<span class="iconfont icon-dui" style="color:#23a4ed; font-size: 42px" ></span>
+		</div>
+		<div class="title" >
+			支付成功
+		</div>
+	</div>
+</div>
+<div class="apply">
+    <img src="https://zhinengyun.applinzi.com/fenYunGuanJia1.0/libai_img/pic.png" alt="" class="img-content">
+    <img src="https://zhinengyun.applinzi.com/fenYunGuanJia1.0/libai_img/apply.png" class="img-apply">
+    <img src="https://zhinengyun.applinzi.com/fenYunGuanJia1.0/libai_img/close.png" class="close">
+ </div>
+<script>
+	    $(function(){
+	        $('#btn').click(function(){
+	            try{
+	                //window.location.href = "http://zhinengyun.applinzi.com/fengyunguanjia/fengyunapp/index.html#/merchant";
+	               // window.android.invokeMethod(1,["true"])
+                    window.history.back();
+	            }catch(e){
+	                console.log(e)
+	            }
+
+	        })
+	    })
+
+        
+    var close = document.getElementsByClassName('close')[0]
+    var apply = document.getElementsByClassName('apply')[0]
+    var applyImg = document.getElementsByClassName('img-apply')[0]
+   
+
+    setTimeout(() => {
+        apply.style.display = 'inline-block'
+    },100)
+
+
+    close.onclick = function () {
+        apply.style.display = 'none'
+    }
+
+    applyImg.onclick = function() {
+         let url = "http://fy.cebpal.cn/fengyunguanjia/cardapply/index.html#/cardcenter?phone=" + localStorage.getItem('phone')
+          + '&token=' + localStorage.getItem('token') 
+          + '&brandId' + localStorage.getItem('brandId')
+          + 'userId' + localStorage.getItem('userId')
+         window.location.href = url
+    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta name="viewport"
+	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title></title>
+<link rel="stylesheet" href="http://fzjobofo.com/link/css/mui.min.css" />
+<script src="http://fzjobofo.com/link/js/mui.min.js"></script>
+<script src="http://fzjobofo.com/link/js/jquery.min.js"></script>
+<style>
+body {
+	font-size: 16px;
+}
+
+label {
+	width: 10%;
+	!
+	important
+}
+
+input {
+	height: 35px;
+}
+
+input[type=text] {
+	border: 0;
+}
+
+input[placeholder] {
+	font-size: 14px;
+}
+
+input[type=password] {
+	border: 0;
+}
+
+input[type=button] {
+	border: 0;
+}
+
+#mis h3 {
+	text-align: center;
+	padding: 10px 5px;
+	font-size: 20px;
+}
+
+.city {
+	height: auto;
+	margin-bottom: 10px;
+	background: #fff;
+}
+
+.city input[type=text] {
+	margin: 0;
+}
+
+.city input:nth-child(2) {
+	border-bottom: 1px solid #ebebeb;
+}
+
+.text {
+	width: 100%;
+	color: #FF9A4A;
+	font-size: 14px;
+	margin-top: 15px;
+}
+
+.dingdan {
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+}
+
+.dingdan span {
+	font-size: 14px;
+}
+
+.dingdan span>span {
+	font-size: 18px;
+	color: #FF9A4A;
+	font-weight: bold;
+}
+
+.select {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.select select {
+	width: 49%;
+	color: #333;
+	font-size: 14px;
+}
+
+.mui-table-view:after {
+	background-color: #fff;
+}
+
+.mui-table-view:before {
+	background-color: #fff;
+}
+
+.showCard {
+	background-image: linear-gradient(-90deg, rgba(148,0,211) 00%, rgba(148,0,211,.9) 25% , rgba(0,0,255,.7) 75%, rgba(0,0,255) 100%);
+/*	width: 100%;
+	background:
+		url("http://1.xinli2017.applinzi.com/login/img/box_top_bg.png") center
+		no-repeat;
+	background-size: 100% 100%;*/
+}
+
+.cardStyle {
+	padding: 10px 15px;
+	border-radius: 8px;
+	position: relative;
+	padding-left: 65px;
+	padding-bottom: 60px;
+	background-size: 100% 100%;
+}
+
+.bankLogo {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #DAE3EC;
+	padding: 5px;
+	position: absolute;
+	left: 15px;
+	top: 22px;
+}
+
+.bankLogo img {
+	width: 100%;
+	border-radius: 50%;
+}
+
+.cardStyle .cardNum {
+	display: flex;
+	justify-content: space-between;
+}
+
+.cardStyle>div:last-child {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 0 40px;
+	height: 41px;
+	line-height: 41px;
+}
+
+.bankText h4 {
+	color: #fff;
+	margin-top: 10px;
+}
+
+.bankText>p {
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 12px;
+}
+
+.cardStyle .cardNum>div:nth-child(1) {
+	color: #fff;
+	font-weight: 600;
+	font-size: 20px;
+}
+
+#carno2 {
+	color: #fff;
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.cardStyle .cardNum>div:last-child {
+	color: #fff;
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.cardStyle .cardNum>div {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.cardStyle>div:last-child>div {
+	width: 100%;
+	height: 100%;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.newTask {
+	position: fixed;
+	bottom: 0;
+	z-index: 9;
+	height: 40px;
+	line-height: 40px;
+	background-color: #eee;
+	width: 100%;
+	text-align: center;
+	font-size: 16px;
+	color: #00aaee;
+}
+
+.confirm {
+	height: 44px;
+	width: 100%;
+	color: #fff;
+	background: #6f43bf;
+	text-align: center;
+	font-size: 16px;
+	border-radius: 40px;
+	margin-top: 10px;
+}
+
+.mui-table-view:after {
+	background-color: #fff;
+}
+
+.mui-table-view:before {
+	background-color: #fff;
+}
+
+.mui-input-row label {
+	width: 26%;
+	font-size: 14px;
+	color: #333;
+	line-height: 18px;
+}
+
+.mui-input-row label ~input, .mui-input-row label ~select,
+	.mui-input-row label ~textarea {
+	width: 71%;
+	color: #666;
+}
+
+.mui-input-group:before {
+	background: none;
+}
+
+.mui-input-group .mui-input-row:after {
+	background: none;
+}
+
+.mui-input-group:after {
+	background: none;
+}
+
+.bg {
+	width: 100%;
+	height: 10px;
+	background: #efeff4
+}
+
+.callback {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	background: #fff;
+	left: 0;
+	top: 0;
+	z-index: 99;
+	display: none;
+}
+
+.money{
+    height: 44px;
+    width: 100%;
+    line-height: 44px;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+}
+
+</style>
+</head>
+<body style="padding: 20px 15px">
+	<!-- <script>
+		try{
+			window.android.invokeMethod(0,["确认充值信息","true"])
+				}catch(e){
+			console.log(e)
+            
+		}
+</script> -->
+	<div>
+	<div class="money">订单金额： <span class="money_number"  th:text="${amount}">110</span>元</div>
+		<!-- 显示银行卡 th:text="${cardType}" -->
+		<div class="showCard">
+			<div class="cardStyle">
+				<div class="bankLogo">
+					<img
+						src="https://zhinengyun.applinzi.com/fenYunGuanJia1.0/image/other/icon_yinlian.png" />
+				</div>
+				<div class="bankText">
+					<h4 id="bankName" th:text="${bankName}">充值卡银行卡名称</h4>
+					<p style="color: #fff; font-size: 14px;">贷记卡</p>
+<!-- 					<input id="bname" style="display: none" type="text"th:value="${bankBranchName}" /> -->
+				</div>
+				<div>
+					<div>
+						<div class="cardNum">
+							<div th:text="${bankCard}" id="carno1"></div>
+							<div>* * * *</div>
+							<div>* * * *</div>
+							<div th:text="${bankCard}" id="carno2"></div>
+							<input id="ka2" type="hidden" th:value="${bankCard}"placeholder="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 显示银行卡 -->
+	<!-- 隐藏接参数 -->
+	<div>
+		<input style="display: none" type="text" placeholder="订单号"th:value="${ordercode}" id="ordercode" />
+		<input style="display: none" type="text" placeholder="IP地址"th:value="${ipAddress}" id="ipAddress" /> 
+	</div>
+	<!-- 隐藏接参数 -->
+
+
+	<!-- 获取验证码 -->
+	<div style="margin-top: 20px;">
+		<input style="width: 60%; border-radius: 15px;" type="text"
+			name="smsCode" id="smsCode" placeholder="请输入验证码" />&nbsp; <input
+			style="width: 35%; height: 36px; border-radius: 10px; border: 0; background: #6f43bf; color: #fff; margin-top: 3px;"
+			id="btn_sendCode" type="button" value="获取验证码" />
+	</div>
+	<!-- 获取验证码 -->
+	<!-- 提示信息 -->
+	<div id="show" class="mui-input-row"
+		style="width: 50%; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 100; text-align: center; background: rgba(0, 0, 0, .7); color: #fff; padding: 12px 0; border-radius: 10px; display: none; font-weight: 400; font-size: 14px;"></div>
+	<!-- 提示信息 -->
+	<div class="mui-input-row" style="width: 100%;">
+		<button class="confirm" id="btn">确定并充值</button>
+	</div>
+	<p class="text">提醒：您正在进行充值，请认真核实并确保银行卡信息不能透露给别人！</p>
+	<!-- 接收页面信息 -->
+	<div class="callback"></div>
+	<!-- 接收页面信息 -->
+
+	<script type="text/javascript">
+    $(function () {
+    	var ipAddress=$('#ipAddress').val()
+        // 获取验证码和发送验证码
+        var wait=60;            
+        function time(o) {  
+            if (wait == 0) {  
+            	o.setAttribute("disabled", true);  
+                o.value="不可重复获取"
+                $("#btn_sendCode")[0].style.backgroundColor="#999" 
+                wait = 60;
+            } else {  
+                o.setAttribute("disabled", true);  
+                o.value=  wait+"(s)" ;  
+                wait--;                     
+                setTimeout(function() {  
+                    time(o)  
+                },  
+                1000)  
+            }  
+        };     
+        var orderId;
+    //提交手机号码重复验证
+    $("#btn_sendCode").click(function(){
+
+            var ordercode=$('#ordercode').val()
+            time(this);
+            $.ajax({
+            type: "POST",
+            url: ipAddress+"/m2.0/shield/channel/xskj/sms",
+            dataType: "json",
+            data: {
+                order_code: ordercode,
+           
+                   },
+            success: function(res){
+                if(res.resp_code=="200"){
+                	orderId=res.orderId
+                	mui.toast('发送验证码成功');
+                }else{
+                	mui.alert(res.resp_message, '提示信息', function() {
+                        try{
+                          window.android.invokeMethod(1,["true"])
+                           }catch(e){
+                               console.log(e)
+                           }
+                       });
+                }
+            }, 
+            error: function (err) {
+                console.log(err)
+                 	mui.toast('交易排队中，请稍后重试！');
+                }
+            });  
+        
+
+      
+    });
+   
+	    // 银行卡加密显示
+        var str = $('#carno1').text()
+        var str2 = $('#carno2').text()
+        function fun(str,str2) {
+            console.log(str)
+            console.log(str2)
+           var str=str.substring(0,4)
+           var str2=str2.substring(str2.length - 4, str2.length)
+            $('#carno1').text(str)
+            $('#carno2').text(str2)
+        }
+        fun(str,str2);
+        // 银行卡加密显示
+         // 点击充值按钮
+        $("#btn").click(function () {
+            // 这是获取所传val的写法
+           var ordercode=$("#ordercode").val()
+            var smscode=$('#smsCode').val();
+
+            // 这是获取所传val的写法end
+            if(smscode==""){
+                  $('#show').stop().fadeIn(100).html("请输入验证码")
+                $('#show').fadeOut(2000).html("请输入验证码") 
+            }else{
+                    $("#btn").attr("disabled", "disabled");
+                    $("#btn").css({background:'#999'})
+                    $("#btn")[0].innerText="正在加载中..."
+                    $.ajax({
+                        url: ipAddress+"/m2.0/shield/channel/xskj/payfrom",
+                        type: "POST",
+                        dataType: 'JSON', 
+                        data: {
+                            order_code:ordercode,
+                            sms_code:smscode,
+                            order_id:orderId
+                        },
+                        success: function (data) {
+                            console.log(data)
+                            if(data.resp_code=="200"){
+                                turntopage(data.result)
+
+                            }else{
+                               // turntopage(data.redirect_url)
+                               /* $('#show').stop().fadeIn(100).html(data.resp_message)
+                    		   $('#show').fadeOut(2000).html(data.resp_message) */
+                            	mui.alert(data.resp_message, '提示信息', function() {
+                                    try{
+                                      window.android.invokeMethod(1,["true"])
+                                       }catch(e){
+                                           console.log(e)
+                                       }
+                                   });
+                            }
+                        },
+                        error:function(err){
+                            console.log(err)
+                            mui.toast('交易排队中，请稍后重试！');
+                        }
+                    })
+            }
+	    
+
+        });
+    //跳转页面专用
+        function turntopage(url){
+			mui.openWindow({
+			url:url,
+			});
+		}
+           //跳转页面专用
+    });
+</script>
+</body>
+</html>

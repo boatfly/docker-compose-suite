@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>操作说明</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+		<style type="text/css">
+			.header {
+				padding: 10px 0;
+				position: fixed;
+				background: white;
+				top: 0;
+			}
+
+			.header .col-xs-8 {
+				text-align: center;
+				font-size: 18px;
+				font-family: PingFangSC-Regular;
+				font-weight: 500;
+			}
+			.prevImg {
+				width: 80%;
+			}
+			#showImg{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<!-- <header class="col-xs-12 header">
+					<div class="col-xs-2" id="prev">
+						<img src="../image/buy/btn_return_icon.png" class="prevImg" />
+					</div>
+					<div class="col-xs-8">
+						操作指引
+					</div>
+				</header> -->
+
+				<div>
+					<img src="" id="showImg"/>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var showImg = document.getElementById("showImg");
+			var url = window.location.search;
+			url = url.split('=')[1]
+			if(url == 1){
+				showImg.src = "http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/opera1.png";
+			} else if(url == 2){
+				showImg.src = "http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/opera3.png";
+			} else if(url == 3){
+				showImg.src = "http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/opera2.png";
+			} else if(url == 4){
+				showImg.src = "http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/opera5.png";
+			} else if(url == 5){
+				showImg.src = "http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/opera4.png";
+			} else if(url == 6){
+				showImg.src = "http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/opera6.png";
+			} else if(url == 7){
+				showImg.src = "http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/opera7.png";
+			} else {
+				showImg.src = "http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/opera8.png";
+			}
+			
+		    var prev = document.getElementById("prev");
+			prev.onclick = function(){
+				console.log(123)
+				window.history.go(-1);
+			}
+		}
+	</script>
+</html>

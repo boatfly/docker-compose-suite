@@ -1,0 +1,5 @@
+upstream marvel {
+  ip_hash; 
+ server 106.14.33.163:443 max_fails=1 fail_timeout=60s;
+}
+

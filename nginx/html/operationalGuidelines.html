@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>风云管家操作指引</title>
+		<style type="text/css">
+
+			.header {
+				padding: 10px 0;
+			}
+
+			.header .col-xs-8 {
+				text-align: center;
+				font-size: 18px;
+				font-family: PingFangSC-Regular;
+				font-weight: 500;
+			}
+
+			.arrowRight {
+				max-width: 30%;
+			}
+
+			.prevImg {
+				width: 80%;
+			}
+
+			.list {
+				border-top: 1px solid #ddd;
+				padding: 10px 0;
+			}
+
+			.list .col-xs-2 {
+				text-align: right;
+			}
+
+			.list .col-xs-10 {
+				font-size: 1.6rem;
+				font-family: PingFangSC-Regular;
+				font-weight: 400;
+			}
+			.container{
+				background: white;
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+	<body style="background:#EFEEEE;">
+		<div class="container">
+			<div class="row">
+				<!-- <header class="col-xs-12 header">
+					<div class="col-xs-2">
+						<img src="../image/buy/btn_return_icon.png" class="prevImg" id="prevImg"/>
+					</div>
+					<div class="col-xs-8">
+						操作指引
+					</div>
+				</header> -->
+
+				<div class="col-xs-12 list" name="1">
+					<div class="col-xs-10">卡管家</div>
+					<div class="col-xs-2">
+						<img src="http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/jt_icon.png" class="arrowRight" />
+					</div>
+				</div>
+
+				<div class="col-xs-12 list" name="2">
+					<div class="col-xs-10">急速贷款</div>
+					<div class="col-xs-2">
+						<img src="http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/jt_icon.png" class="arrowRight" />
+					</div>
+				</div>
+
+				<div class="col-xs-12 list" name="3">
+					<div class="col-xs-10">信用卡申请</div>
+					<div class="col-xs-2">
+						<img src="http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/jt_icon.png" class="arrowRight" />
+					</div>
+				</div>
+
+				<div class="col-xs-12 list" name="4">
+					<div class="col-xs-10">商户收款</div>
+					<div class="col-xs-2">
+						<img src="http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/jt_icon.png" class="arrowRight" />
+					</div>
+				</div>
+
+				<div class="col-xs-12 list" name="5">
+					<div class="col-xs-10">城主排行</div>
+					<div class="col-xs-2">
+						<img src="http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/jt_icon.png" class="arrowRight" />
+					</div>
+				</div>
+
+				<div class="col-xs-12 list" name="6">
+					<div class="col-xs-10">购买升级</div>
+					<div class="col-xs-2">
+						<img src="http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/jt_icon.png" class="arrowRight" />
+					</div>
+				</div>
+				
+				<div class="col-xs-12 list" name="7">
+					<div class="col-xs-10">实名认证</div>
+					<div class="col-xs-2">
+						<img src="http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/jt_icon.png" class="arrowRight" />
+					</div>
+				</div>
+				
+				<div class="col-xs-12 list" name="8">
+					<div class="col-xs-10">卡包</div>
+					<div class="col-xs-2">
+						<img src="http://1.zhinengyun.applinzi.com/fenYunGuanJia1.0/image/rate/jt_icon.png" class="arrowRight" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var list = document.getElementsByClassName("list");
+			
+			for(var i = 0; i < list.length; i++){
+				console.log(list[i])
+				list[i].onclick = function(){
+					var identification = this.getAttribute("name");
+					window.location.href = "operationDetail.html?index=" + identification;
+				}
+			}
+			var prevImg = document.getElementById("prevImg");
+			prevImg.onclick = function(){
+				window.history.go(-1)
+			}
+		}
+	</script>
+</html>

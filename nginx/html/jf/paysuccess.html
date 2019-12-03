@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <script src="https://fzjobofo.com/link/js/jquery.min.js"></script>
+    <script>           
+        var bw = (document.documentElement.clientWidth/7.5)+"px";        
+        var htmlTag = document.getElementsByTagName("html")[0];        
+        htmlTag.style.fontSize=bw; 
+    </script>
+    <style>
+        *{
+            padding:0;
+            margin:0
+        }
+        body{
+            background: #f2f2f2;
+            font-size: 14px;
+        }
+		.head{
+			width:100%;
+			height:0.64rem;
+			border-bottom: 1px solid #e1e1e1;
+			background:#fff;
+			display: flex;
+			align-items: center;
+		}
+		.head div{
+			width:0.22rem;
+			height:0.22rem;
+			border-left: 1px solid #000;
+			border-top: 1px solid #000;
+			margin-left:0.34rem;
+			-webkit-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+		}
+		.head p{
+			flex:1;
+			text-align: center;
+			font-size: 0.32rem;
+			line-height: 0.64rem;
+			margin-right:0.56rem;
+		}
+       /* #main{
+            padding:0 0.2rem;
+        } */
+        .main{
+            background: #fff;
+            padding:0 0.3rem;
+        }
+        .main_header{
+            text-align: center;
+        }
+        .main_header img{
+            margin-top: 1.4rem;
+            width: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .main_header p{
+            font-size: 0.5rem;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 0.5rem;
+        }
+        .content{
+            border-bottom: 1px dashed #ccc;
+        }
+        .flex{
+            display: flex;
+            justify-content: space-between;
+            margin:0.2rem 0;
+            font-size: 0.25rem;
+        }
+        .bottom{
+            width:100%;
+            height:3rem;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            flex-wrap:wrap;
+        }
+        .realMount_left,.realMount_right{
+            width:100%;
+            text-align: center;
+        }
+        .realMount_left{
+            font-size: 0.3rem;
+            color:#999;
+        }
+        .realMount_right span{
+            font-size: 0.6rem;
+        }
+        .orderCode_right.right{
+
+        }
+        #btn{
+            width:100%;
+            height:1rem;
+            background: #6591e0;
+            color:#fff;
+            border-radius: 5px;
+            margin-top: 0.7rem;
+            font-size: 0.3rem;
+            outline: none;
+        }
+        /* 提示框 */
+        #show1{
+            width:50%;
+            margin:0 auto;
+            position: fixed;
+            bottom:10%;
+            /* top:80%; */
+            left:0;
+            right:0;
+            text-align: center;
+            padding:20px 0;
+            background:#555555;
+            color:#fff;
+            border-radius:10px;
+            opacity:0.8;
+            display: none;
+        }
+        .history_title {
+    background: #FFF5E9;
+    height: 24px;
+    font-size: 12px;
+    color: #FA852D;
+    line-height: 24px;
+    padding: 0 15px;
+}
+ 
+
+
+    .apply {
+         height: 100%;
+         width: 100%;
+         position: absolute;
+         top: 0;
+         left: 0;
+         background: rgba(0, 0, 0, 0.5);
+         display: none;
+    }
+    .img-content {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        height: 300px;
+        width: 300px;
+    }
+    .img-apply {
+       height: 70px;
+       width: 70%;
+       position: absolute;
+       top: 62%;
+       left: 50%;
+       transform: translate(-50%,-50%);
+    }
+    .close {
+       height: 50px;
+       width: 50px;
+       position: absolute;
+       top: 75%;
+       left: 50%;
+       transform: translate(-50%,-50%);
+    }
+    </style>
+    <title></title>
+</head>
+<body>
+<!--	<div class="head">
+		<div id="backPay"></div>
+		<p>支付</p>
+	</div>-->
+    <div id="main">
+        <div class="history_title">温馨提示：用户以实际扣款成功与否为准!</div>
+        <div class="main">
+            <div class="main_header">
+             
+                <img src="http://fzjobofo.com/img/success_img.png" alt="">
+                <p>支付成功</p>
+            </div>
+            <div class="content">
+                <div class="orderCode flex">
+                    <div class="orderCode_left">订单编号：</div>
+                    <div class="orderCode_right right" th:text="${orderCode}">ew534g4etffr345yjgderthfdcbt4fdc</div>
+                </div>
+                <div class="bankName flex">
+                    <div class="bankName_left">支付方式：</div>
+                    <div class="bankName_lright right" ><span th:text="${bankName}"> 建设银行</span> &nbsp;(<span id="bankCard" th:text="${bankCard}">7005253354</span>)</div>
+                </div>
+                <div class="bankCard flex">
+                    <div class="bankCard_left">订单金额：</div>
+                    <div class="bankCard_right right" id="amount" th:text="${amount}">2234</div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="realMount_left">实际到账金额</div>
+                <div class="realMount_right">￥<span id="realAmount" th:text="${realAmount}">9999</span></div>
+            </div>
+        </div>
+        <button id="btn">完成</button>
+
+        
+    </div>
+    
+    <!-- 提示框 -->
+    <div id="show1">
+        123
+    </div>
+
+    <div class="apply">
+        <img src="https://zhinengyun.applinzi.com/fenYunGuanJia1.0/libai_img/pic.png" alt="" class="img-content">
+        <img src="https://zhinengyun.applinzi.com/fenYunGuanJia1.0/libai_img/apply.png" class="img-apply">
+        <img src="https://zhinengyun.applinzi.com/fenYunGuanJia1.0/libai_img/close.png" class="close">
+    </div>
+</body>
+
+<script>
+    $(function(){
+		 $('#backPay').click(function(){
+		     window.location.href = "http://zhinyun.applinzi.com/fengyunguanjia/fengyunapp/index.html#/merchant";
+			//window.history.back(-2);
+		})
+         // 银行卡加密
+         var bankCard = $('#bankCard').text();
+        (function(){
+            if(bankCard != ''){
+                var str2 = bankCard.substring(bankCard.length - 4, bankCard.length)
+                bankCard =   str2
+                $('#bankCard').text(bankCard)
+            }
+        })()
+        $("#amount").text(Number($("#amount").text()).toFixed(2))
+        $("#realAmount").text(Number($("#realAmount").text()).toFixed(2))
+        // 完成功能
+        $('#btn').click(function(){
+            let u = navigator.userAgent;
+            console.log(u)
+            let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+            let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+            console.log(isAndroid,isiOS)
+            if(isAndroid){
+                //window.android.invokeMethod(1, ["true"]);
+                window.history.back(-1);
+            }
+            if(isiOS){
+                promptBox('请手动返回原页面')
+            }
+			window.history.back(-2);
+        })
+
+        // 弹窗
+        function promptBox(str){
+            $('#show1').html(str).stop().fadeIn(100)
+            $('#show1').fadeOut(2000)
+        }
+    })
+
+    
+    var close = document.getElementsByClassName('close')[0]
+    var apply = document.getElementsByClassName('apply')[0]
+    var applyImg = document.getElementsByClassName('img-apply')[0]
+   
+
+   
+
+    close.onclick = function () {
+        console.log(555)
+        apply.style.display = 'none'
+    }
+
+/*    applyImg.onclick = function() {
+         window.location.href = 'www.baidu.com'
+        console.log(55555)
+    }*/
+
+    setTimeout(() => {
+        apply.style.display = 'inline-block'
+    },100)
+    
+
+    applyImg.onclick = function() {
+        console.log("come in~~~~");
+        var uri = window.location.href;
+        console.log(uri);
+        var userId = uri.substring(uri.lastIndexOf('=')+1, uri.length);
+        console.log(userId);
+        let url = "http://fy.cebpal.cn/fengyunguanjia/cardapply/index.html#/cardcenter?userId=" + userId;
+         window.location.href = url;
+    }
+
+</script>
+</html>

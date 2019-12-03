@@ -1,0 +1,15 @@
+version: '2'
+services: 
+  nginx-master: 
+    image: nginx              
+    container_name: nginx-master
+    ports: 
+     - "80:80"
+     - "443:443"
+    restart: always
+    volumes: 
+      - '/marvel/local/docker/nginx/conf/nginx.conf:/etc/nginx/nginx.conf'
+      - '/marvel/local/docker/nginx/conf/conf.d/:/etc/nginx/conf.d'
+      - '/marvel/local/docker/nginx/logs/:/var/log/nginx'
+      - '/marvel/local/docker/nginx/html/:/usr/share/nginx/html'
+      - '/marvel/local/docker/nginx/ssl-key:/etc/nginx/ssl-key'

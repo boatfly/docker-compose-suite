@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/mui/3.7.1/css/mui.min.css"/>
+    <link rel="stylesheet" href="http://1.xinli2017.applinzi.com/login/iconfont/iconfont.css">
+    <script src="https://cdn.bootcss.com/mui/3.7.1/js/mui.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('plusready', function () {
+            //console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+        });
+    </script>
+    <style>
+    .mui-content{
+    	background: #23a4ed;
+    }
+    .error{
+    	width:200px;
+    	height: 200px;
+    	text-align: center;
+    	margin: 0 auto;
+    	margin-top: 180px;
+     	}
+	.error_x{
+		height: 100px;
+		width: 100px;
+		border-radius: 50%;
+		background: #fff;
+		text-align: center;
+		line-height: 100px;
+		margin: 0 auto;
+		}
+		.title{
+			color: #fff;
+			font-size: 20px;
+			padding-top: 20px;
+		}
+        
+    </style>
+    
+</head>
+<body style="background: #23a4ed;">
+<header class="mui-bar mui-bar-nav" style="background:#37c3e7">
+	<button id="btn" style="position:absolute;left:0;top:0;height:44px;background:#000;z-index:1000;opacity:0">返回</button>
+	<a class="mui-action-back iconfont icon-fanhui mui-pull-left" style="color: #fff;font-size: 18px; line-height:44px;"></a>
+    <h1 class="mui-title" style="color:#fff;">支付信息</h1>
+</header>
+<div class="mui-content">
+    <div class="error">
+		<div class="error_x">
+			<span class="iconfont icon-dui" style="color:#23a4ed; font-size: 42px" ></span>
+		</div>
+		<div class="title" >
+			支付扣款中(用户以实际扣款为准)
+		</div>
+	</div>
+</div>
+<script>
+	    $(function(){
+	        $('#btn').click(function(){
+	            try{
+	                window.android.invokeMethod(1,["true"])
+	            }catch(e){
+	                console.log(e)
+	            }
+
+	        })
+	    })
+	</script>
+</body>
+</html>
