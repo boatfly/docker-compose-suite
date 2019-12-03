@@ -1,0 +1,35 @@
+version: '2'
+services:
+  master:
+    image: redis       ## 镜像
+    container_name: redis-master
+    command: redis-server --requirepass 'marvel_2019'
+    ports:
+    - "6379:6379"
+    restart: always
+    networks:
+    - redis_sentinel-master-ddsh
+  slave1:
+    image: redis                ## 镜像
+    container_name: redis-slave-1
+    ports:
+    - "6380:6379"           ## 暴露端口
+    restart: always
+    command: redis-server --slaveof redis-master 6379 --requirepass 'marvel_2019' --masterauth 'marvel_2019'
+    depends_on:
+    - master
+    networks:
+    - redis_sentinel-master-ddsh
+  slave2:
+    image: redis                ## 镜像
+    container_name: redis-slave-2
+    ports:
+    - "6381:6379"           ## 暴露端口
+    restart: always
+    command: redis-server --slaveof redis-master 6379 --requirepass 'marvel_2019' --masterauth 'marvel_2019'
+    depends_on:
+    - master
+    networks:
+    - redis_sentinel-master-ddsh
+networks:
+  redis_sentinel-master-ddsh:

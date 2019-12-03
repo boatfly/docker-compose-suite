@@ -1,0 +1,36 @@
+version: '2'
+services:
+  sentinel1:
+    image: redis       ## 镜像
+    container_name: redis-sentinel-1
+    command: redis-sentinel /usr/local/etc/redis/sentinel.conf
+    ports: 
+    - "26379:26379"
+    restart: always
+    volumes:
+    - "/marvel/local/docker/sentinel/sentinel.conf:/usr/local/etc/redis/sentinel.conf"
+    - "/marvel/local/docker/sentinel/data1:/data"
+  sentinel2:
+    image: redis                ## 镜像
+    container_name: redis-sentinel-2
+    ports:
+    - "26380:26379"           
+    restart: always
+    command: redis-sentinel /usr/local/etc/redis/sentinel.conf
+    volumes:
+    - "/marvel/local/docker/sentinel/sentinel2.conf:/usr/local/etc/redis/sentinel.conf"
+    - "/marvel/local/docker/sentinel/data2:/data"
+  sentinel3:
+    image: redis                ## 镜像
+    container_name: redis-sentinel-3
+    ports:
+    - "26381:26379"           
+    restart: always
+    command: redis-sentinel /usr/local/etc/redis/sentinel.conf
+    volumes:
+    - "/marvel/local/docker/sentinel/sentinel3.conf:/usr/local/etc/redis/sentinel.conf"
+    - "/marvel/local/docker/sentinel/data3:/data"
+networks:
+  default:
+    external:
+      name: redis_sentinel-master-ddsh
