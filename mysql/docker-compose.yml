@@ -1,0 +1,14 @@
+version: '2'
+services: 
+  mysql-ddsh: 
+    image: mysql:5.6                
+    network_mode: "host"
+    ports: 
+    - "3336:3336"
+    restart: always
+    volumes: 
+    - "./db:/var/lib/mysql"
+    - "./my.cnf:/etc/my.cnf"   
+    environment: 
+      MYSQL_ROOT_PASSWORD: ForAlliance5689
+      TZ:                  Asia/Shanghai
