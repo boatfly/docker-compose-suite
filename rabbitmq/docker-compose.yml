@@ -1,0 +1,20 @@
+version: '2'
+services:
+ 
+  #rabbitmq container
+  rabbitmq:
+    #setup host name
+    hostname: marvel-rabbitmq
+    #use docker images
+    image: rabbitmq:management
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=marvel
+    #ports setting
+    ports:
+      - 15673:15672
+      - 5673:5672
+    restart: always
+    #volumes setting
+    volumes:
+      - ./data:/var/lib/rabbitmq
